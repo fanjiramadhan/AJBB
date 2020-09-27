@@ -18,34 +18,34 @@ public function login() {
 //          ambil detail data
             $user = $this->input->post('username');
             $pw = $this->input->post('password');
-            $where = [
-                'username' => $user,
-                'password' => $pw,
-            ];
-            $cek = $this->login_user->cek_login("admin",$where)->num_rows();
-            $getUser = $this->login_user->getAdminData("admin",$where)->result_array();
-            // $result = $this->login_user->data_login($user, $pw);
+            // $where = [
+            //     'username' => $user,
+            //     'password' => $pw,
+            // ];
+            // $cek = $this->login_user->cek_login("admin",$where)->num_rows();
+            // $getUser = $this->login_user->getAdminData("admin",$where)->result_array();
+            $result = $this->login_user->data_login($user, $pw);
 
-//             if ($result) {
-//             $data = array();
-//             foreach($result as $row) {
-//                 //create the session
-//                 $data = array(
-//                     // 'id' => $row->id_admin,
-//                     'username'=>$row->username,
-//                     'password'=>$row->password,
-//                 );
-// //            redirect ke halaman sukses
-//             $this->session->set_userdata($data);
-//             redirect('admin');
-//         	}
-//              return TRUE;
+            if ($result) {
+            $data = array();
+            foreach($result as $row) {
+                //create the session
+                $data = array(
+                    // 'id' => $row->id_admin,
+                    'username'=>$row->username,
+                    'password'=>$row->password,
+                );
+//            redirect ke halaman sukses
+            $this->session->set_userdata($data);
+            redirect('admin');
+        	}
+             return TRUE;
     		
-//         } else {
-// //            tampilkan pesan error
-// 				 $data['error'] = 'Invalid Username/Password!';
-// 				 $this->load->view('loginadmin', $data);
-//         }
+        } else {
+//            tampilkan pesan error
+				 $data['error'] = 'Invalid Username/Password!';
+				 $this->load->view('loginadmin', $data);
+        }
     }
 
 public  function logout() {
