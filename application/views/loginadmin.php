@@ -26,14 +26,14 @@
             <label>
               Username<span class="req">*</span>
             </label>
-            <input type="text" name="username" id="username" required="" autocomplete="on"/>
+            <input type="text" name="username" id="username">
           </div>
           
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" id="password" required="" autocomplete="on"/>
+            <input type="password" name="password" id="password">
           </div>
           
           <button type="submit" class="button button-block"/>Login</button><br>

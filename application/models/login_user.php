@@ -24,6 +24,14 @@ function __construct () {
         ->get();
     return $query->result() ;
     }
+    public function cek_login($table, $where)
+    {
+        return $this->db->get_where($table,$where);
+    }
+    public function getAdminData($table, $where)
+    {
+        return $this->db->get_where($table,$where);
+    }
      function data_login($username,$password) {
         $this->db->select('*');
         $this->db->from('admin');
